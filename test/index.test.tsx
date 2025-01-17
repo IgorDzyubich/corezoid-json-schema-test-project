@@ -18,6 +18,12 @@ describe("generateRandomData", () => {
         expect(result.length).toBeLessThanOrEqual(10);
     });
 
+    it("should generate a random boolean", () => {
+        const schema = { type: "boolean" };
+        const result = generateRandomData(schema);
+        expect(typeof result).toBe('boolean');
+    });
+
     // Arrays
     it("should generate an array with items matching the schema", () => {
         const schema = {

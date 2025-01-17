@@ -16,19 +16,45 @@ This project provides a utility function to generate random data objects based o
 Clone the repository and install dependencies:
 ```bash
 npm install
+```
 
 ## Testing
+```bash
 npm test
-
+```
 ## Test Coverage
+```bash
 npm run coverage
 Open the HTML report at coverage/lcov-report/index.html
 ```
 
+## CI Pipeline
+Open [github actions](https://github.com/IgorDzyubich/corezoid-json-schema-test-project/actions)
+
 ## Example Schemas
 -Integer Schema:
 ```bash
-{ "type": "integer", "minimum": 1, "maximum": 100 }
+{ 
+  "type": "integer", 
+  "minimum": 1, 
+  "maximum": 100 
+}
+```
+
+-String Schema:
+```bash
+{ 
+  type: "string", 
+  minLength: 5, 
+  maxLength: 10 
+}
+```
+
+-Boolean Schema:
+```bash
+{ 
+  type: "boolean"
+}
 ```
 
 -Array Schema:
