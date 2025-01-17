@@ -1,0 +1,39 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Set up Node.js environment
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # Use the Node.js version that fits your project
+
+    # Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Run tests with coverage
+    - name: Run tests with coverage
+      run: npm test -- --coverage  # Ensure Jest is configured to output coverage
+
+    # Upload the coverage report as an artifact
+    - name: Upload test coverage artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: coverage-report
+        path: coverage/lcov-report  # Path to the generated coverage report (adjust as necessary)
